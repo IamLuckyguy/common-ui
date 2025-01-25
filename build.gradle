@@ -32,6 +32,13 @@ publishing {
     }
     repositories {
         maven {
+            def env = project.findProperty('env') ?: 'dev'
+            def snapshotUrl = "https://nexus.kwt.co.kr/repository/maven-snapshots/"
+            def releaseUrl = "https://nexus.kwt.co.kr/repository/maven-releases/"
+
+            url = env == 'dev' ? uri(snapshotUrl) : uri(releaseUrl)
+            version = env == 'dev' ? version + '-SNAPSHOT' : version
+
             url = uri("https://nexus.kwt.co.kr/repository/maven-releases/")
             credentials {
                 username = "maven-deploy"
