@@ -1,0 +1,29 @@
+<!-- fragments/header.html -->
+<header th:fragment="header(services, currentService)" class="main-header">
+    <nav class="gnb-container">
+        <div class="gnb-left">
+            <button class="service-menu-btn">서비스 선택</button>
+            <div class="service-menu">
+                <a th:each="service : ${services}"
+                   th:href="${service.serviceUrl}"
+                   th:class="${service.serviceId == currentService ? 'active' : ''}"
+                   th:text="${service.serviceName}">서비스명</a>
+            </div>
+        </div>
+
+        <div class="gnb-right">
+<!--            <th:block th:if="${#authentication.principal != null}">-->
+            <th:block th:if="${false}">
+                <div class="user-info">
+                    <span th:text="${#authentication.principal.name}">사용자명</span>
+                    <a href="/logout">로그아웃</a>
+                </div>
+            </th:block>
+<!--            <th:block th:unless="${#authentication.principal != null}">-->
+            <th:block th:if="${true}">
+                <a href="/login">로그인</a>
+                <a href="/signup">회원가입</a>
+            </th:block>
+        </div>
+    </nav>
+</header>

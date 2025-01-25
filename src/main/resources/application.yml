@@ -1,0 +1,10 @@
+service:
+  urls:
+    exchange:
+      local: http://localhost:8080
+      dev: https://exchange-dev.kwt.co.kr
+      prod: https://exchange.kwt.co.kr
+    salary:
+      local: http://localhost:8081
+      dev: https://givemesalary-dev.kwt.co.kr/
+      prod: https://givemesalary.kwt.co.kr/
