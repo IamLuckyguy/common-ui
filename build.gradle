@@ -39,7 +39,6 @@ publishing {
             url = env == 'dev' ? uri(snapshotUrl) : uri(releaseUrl)
             version = env == 'dev' ? version + '-SNAPSHOT' : version
 
-            url = uri("https://nexus.kwt.co.kr/repository/maven-releases/")
             credentials {
                 username = "maven-deploy"
                 password = "maven-deploy"
