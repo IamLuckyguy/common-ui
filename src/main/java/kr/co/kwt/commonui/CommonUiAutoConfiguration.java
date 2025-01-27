@@ -23,8 +23,12 @@ public class CommonUiAutoConfiguration {
         resolver.setSuffix(".html");
         resolver.setTemplateMode(TemplateMode.HTML);
         resolver.setCharacterEncoding("UTF-8");
-        resolver.setOrder(2); // 공통 UI 템플릿을 후순위 탐색
+        resolver.setOrder(1); // 공통 UI 우선탐색
         resolver.setCheckExistence(true);
+
+        // 개발시 캐시 비활성화
+        resolver.setCacheable(false);
+
         return resolver;
     }
 
@@ -32,6 +36,16 @@ public class CommonUiAutoConfiguration {
     @ConditionalOnMissingBean
     public SpringTemplateEngine templateEngine(List<ITemplateResolver> templateResolvers) {
         SpringTemplateEngine engine = new SpringTemplateEngine();
+
+        // 리졸버 순서 로깅
+        templateResolvers.forEach(resolver -> {
+            if (resolver instanceof SpringResourceTemplateResolver) {
+                SpringResourceTemplateResolver springResolver = (SpringResourceTemplateResolver) resolver;
+                System.out.println("Template Resolver - Prefix: " + springResolver.getPrefix()
+                        + ", Order: " + springResolver.getOrder());
+            }
+        });
+
         templateResolvers.forEach(engine::addTemplateResolver);
         engine.setEnableSpringELCompiler(true);
         return engine;
