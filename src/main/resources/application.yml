@@ -1,2 +1,2 @@
 app:
-  service: ${APP_SERVICE:}
+  service: ${APP_SERVICE:exchange}

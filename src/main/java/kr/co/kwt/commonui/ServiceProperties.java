@@ -1,11 +1,13 @@
 package kr.co.kwt.commonui;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
 import java.util.HashMap;
 import java.util.Map;
 
 @ConfigurationProperties(prefix = "services")
+@EnableConfigurationProperties(ServiceConfig.class)
 public class ServiceProperties {
     private Map<String, ServiceConfig> services = new HashMap<>();
 
