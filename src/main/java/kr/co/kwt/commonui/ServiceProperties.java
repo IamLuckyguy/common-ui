@@ -11,6 +11,16 @@ public class ServiceProperties {
     private String url;
     private String themeColor;
 
+    public ServiceProperties() {
+    }
+
+    public ServiceProperties(String id, String name, String url, String themeColor) {
+        this.id = id;
+        this.name = name;
+        this.url = url;
+        this.themeColor = themeColor;
+    }
+
     public String getId() {
         return id;
     }
