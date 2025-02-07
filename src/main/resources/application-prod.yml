@@ -1,7 +1,5 @@
 services:
   exchange:
-    name: "환율계산기"
     url: https://exchange.kwt.co.kr
   salary:
-    name: "연봉실수령좀"
     url: https://givemesalary.kwt.co.kr/

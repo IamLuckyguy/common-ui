@@ -27,7 +27,8 @@ public class ServiceConfig {
             this.currentService = new ServiceInfo(
                     currentServiceId,
                     config.getName(),
-                    config.getUrl()
+                    config.getUrl(),
+                    config.getThemeColor()
             );
         }
     }
@@ -38,5 +39,9 @@ public class ServiceConfig {
 
     public Map<String, ServiceProperties.ServiceConfig> getServices() {
         return serviceProperties.getServices();
+    }
+
+    public String getThemeClass() {
+        return currentServiceId + "-service";
     }
 }

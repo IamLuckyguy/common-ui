@@ -12,6 +12,7 @@ public class ServiceProperties {
     public static class ServiceConfig {
         private String name;
         private String url;
+        private String themeColor;
 
         public String getName() {
             return name;
@@ -27,6 +28,14 @@ public class ServiceProperties {
 
         public void setUrl(String url) {
             this.url = url;
+        }
+
+        public String getThemeColor() {
+            return themeColor;
+        }
+
+        public void setThemeColor(String themeColor) {
+            this.themeColor = themeColor;
         }
     }
 

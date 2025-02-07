@@ -4,6 +4,7 @@ public class ServiceInfo {
     private String serviceId;
     private String serviceName;
     private String serviceUrl;
+    private String themeColor;
 
     public String getServiceId() {
         return serviceId;
@@ -17,9 +18,14 @@ public class ServiceInfo {
         return serviceUrl;
     }
 
-    public ServiceInfo(String serviceId, String serviceName, String serviceUrl) {
+    public String getThemeColor() {
+        return themeColor;
+    }
+
+    public ServiceInfo(String serviceId, String serviceName, String serviceUrl, String themeColor) {
         this.serviceId = serviceId;
         this.serviceName = serviceName;
         this.serviceUrl = serviceUrl;
+        this.themeColor = themeColor;
     }
 }

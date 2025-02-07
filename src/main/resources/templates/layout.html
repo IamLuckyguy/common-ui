@@ -17,6 +17,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" th:href="@{/css/common.css}">
 
+    <!-- 서비스별 테마 설정 -->
+    <style th:inline="css">
+        :root {
+            --theme-color: [[${@serviceConfig.currentService.themeColor}]];
+            --theme-color-rgb: [[${T(org.thymeleaf.util.StringUtils).substring(@serviceConfig.currentService.themeColor, 1)}]];
+        }
+    </style>
+
     <!-- Favicons -->
     <th:block th:replace="~{fragments/favicon :: favicons}" />
 
@@ -33,7 +41,7 @@
             crossorigin="anonymous">
     </script>
 </head>
-<body th:class="${serviceTheme}"> <!-- 서비스별 테마 적용 -->
+<body th:class="${@serviceConfig.themeClass}"> <!-- 서비스별 테마 적용 -->
 <!-- GTM Body -->
 <th:block th:replace="~{fragments/gtm :: body}" />
 
