@@ -41,7 +41,7 @@
             crossorigin="anonymous">
     </script>
 </head>
-<body th:class="${@serviceConfig.themeClass}"> <!-- 서비스별 테마 적용 -->
+<body th:class="${@serviceConfig.getThemeClass}"> <!-- 서비스별 테마 적용 -->
 <!-- GTM Body -->
 <th:block th:replace="~{fragments/gtm :: body}" />
 
