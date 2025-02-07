@@ -1,9 +1,11 @@
 package kr.co.kwt.commonui;
 
 import nz.net.ultraq.thymeleaf.layoutdialect.LayoutDialect;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.thymeleaf.spring6.SpringTemplateEngine;
@@ -13,7 +15,17 @@ import org.thymeleaf.templatemode.TemplateMode;
 @AutoConfiguration(after = {
         ThymeleafAutoConfiguration.class
 })
+@EnableConfigurationProperties(ServiceProperties.class)
 public class CommonUiAutoConfiguration {
+
+    @Bean
+    @ConditionalOnMissingBean(name = "serviceConfig")
+    public ServiceConfig serviceConfig(
+            ServiceProperties serviceProperties,
+            @Value("${app.service:}") String currentServiceId
+    ) {
+        return new ServiceConfig(serviceProperties, currentServiceId);
+    }
 
     @Bean
     @ConditionalOnMissingBean(name = "commonUiTemplateResolver")
