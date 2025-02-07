@@ -20,8 +20,8 @@
     <!-- 서비스별 테마 설정 -->
     <style th:inline="css">
         :root {
-            --theme-color: [[${@serviceConfig.currentService.themeColor}]];
-            --theme-color-rgb: [[${T(org.thymeleaf.util.StringUtils).substring(@serviceConfig.currentService.themeColor, 1)}]];
+            --theme-color: [[${@serviceConfig.currentService.getThemeColor()}]];
+            --theme-color-rgb: [[${T(org.thymeleaf.util.StringUtils).substring(@serviceConfig.currentService.getThemeColor(), 1)}]];
         }
     </style>
 
