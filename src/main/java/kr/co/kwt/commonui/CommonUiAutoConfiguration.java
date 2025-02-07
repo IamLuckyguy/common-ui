@@ -19,7 +19,6 @@ import org.thymeleaf.templatemode.TemplateMode;
 public class CommonUiAutoConfiguration {
 
     @Bean
-    @ConditionalOnMissingBean(name = "serviceConfig")
     public ServiceConfig serviceConfig(
             ServiceProperties serviceProperties,
             @Value("${app.service:}") String currentServiceId
