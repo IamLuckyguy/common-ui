@@ -3,10 +3,12 @@ package kr.co.kwt.commonui;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
 import java.util.Map;
 
 @Configuration
+@Component
 @EnableConfigurationProperties(ServiceProperties.class)
 public class ServiceConfig {
 
