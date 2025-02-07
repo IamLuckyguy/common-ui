@@ -38,7 +38,7 @@
 <th:block th:replace="~{fragments/gtm :: body}" />
 
 <!-- Header -->
-<th:block th:replace="~{fragments/header :: header(@${serviceConfig.services}, @${serviceConfig.currentService})}" />
+<th:block th:replace="~{fragments/header :: header(services=${@serviceConfig.services}, currentService=${@serviceConfig.currentService})}" />
 
 <!-- Loading Overlay -->
 <th:block th:replace="~{fragments/loading :: loading-overlay}" />
