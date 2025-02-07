@@ -10,17 +10,14 @@
                    th:text="${service.serviceName}">서비스명</a>
             </div>
         </div>
-
         <div class="gnb-right">
-<!--            <th:block th:if="${#authentication.principal != null}">-->
-            <th:block th:if="${false}">
+            <th:block th:if="${#authentication != null and #authentication.principal != null}">
                 <div class="user-info">
                     <span th:text="${#authentication.principal.name}">사용자명</span>
                     <a href="/logout">로그아웃</a>
                 </div>
             </th:block>
-<!--            <th:block th:unless="${#authentication.principal != null}">-->
-            <th:block th:if="${true}">
+            <th:block th:unless="${#authentication != null and #authentication.principal != null}">
                 <a href="/login">로그인</a>
                 <a href="/signup">회원가입</a>
             </th:block>

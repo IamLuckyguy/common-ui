@@ -1,5 +1,6 @@
 package kr.co.kwt.commonui;
 
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
@@ -8,6 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @Configuration
+@EnableConfigurationProperties(ServiceUrlConfig.class)
 public class ServiceConfig {
 
     private final ServiceUrlConfig serviceUrlConfig;
