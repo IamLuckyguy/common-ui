@@ -1,11 +1,9 @@
-:root {
-    /* 기본 테마 변수 설정 */
-    --theme-color: #00ff88;
-    --theme-color-rgb: 0, 255, 136;
-    --bg-color: #1a1a1a;
-    --text-color: #ffffff;
-    --border-color: #4a4a4a;
-}
+/*:root {*/
+/*    !* 기본 테마 변수 설정 *!*/
+/*    --theme-color: #00ff88;*/
+/*    --theme-color-rgb: 0, 255, 136;*/
+/*    */
+/*}*/
 
 /* 기본 스타일 */
 body {

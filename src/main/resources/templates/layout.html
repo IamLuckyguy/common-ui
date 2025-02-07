@@ -20,8 +20,11 @@
     <!-- 서비스별 테마 설정 -->
     <style th:inline="css">
         :root {
-            --theme-color: [[${@serviceConfig.currentService.getThemeColor()}]];
-            --theme-color-rgb: [[${T(org.thymeleaf.util.StringUtils).substring(@serviceConfig.currentService.getThemeColor(), 1)}]];
+            --theme-color: [(${@serviceProperties.themeColor})];
+            --theme-color-rgb: [(${@serviceProperties.themeColorRgb})];
+            --bg-color: #1a1a1a;
+            --text-color: #ffffff;
+            --border-color: #4a4a4a;
         }
     </style>
 
@@ -41,12 +44,12 @@
             crossorigin="anonymous">
     </script>
 </head>
-<body th:class="${@serviceConfig.getThemeClass}"> <!-- 서비스별 테마 적용 -->
+<body th:class="'dark ' + ${@serviceProperties.themeClass}"> <!-- 서비스별 테마 적용 -->
 <!-- GTM Body -->
 <th:block th:replace="~{fragments/gtm :: body}" />
 
 <!-- Header -->
-<th:block th:replace="~{fragments/header :: header(services=${@serviceConfig.services}, currentService=${@serviceConfig.currentService})}" />
+<th:block th:replace="~{fragments/header :: header(services=${services}, currentService=${@serviceProperties})}" />
 
 <!-- Loading Overlay -->
 <th:block th:replace="~{fragments/loading :: loading-overlay}" />

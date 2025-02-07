@@ -1,31 +1,31 @@
 package kr.co.kwt.commonui;
 
 public class ServiceInfo {
-    private String serviceId;
-    private String serviceName;
-    private String serviceUrl;
-    private String themeColor;
+    private final String id;
+    private final String name;
+    private final String url;
+    private final String themeColor;
 
-    public String getServiceId() {
-        return serviceId;
+    public ServiceInfo(String id, String name, String url, String themeColor) {
+        this.id = id;
+        this.name = name;
+        this.url = url;
+        this.themeColor = themeColor;
     }
 
-    public String getServiceName() {
-        return serviceName;
+    public String getId() {
+        return id;
     }
 
-    public String getServiceUrl() {
-        return serviceUrl;
+    public String getName() {
+        return name;
+    }
+
+    public String getUrl() {
+        return url;
     }
 
     public String getThemeColor() {
         return themeColor;
-    }
-
-    public ServiceInfo(String serviceId, String serviceName, String serviceUrl, String themeColor) {
-        this.serviceId = serviceId;
-        this.serviceName = serviceName;
-        this.serviceUrl = serviceUrl;
-        this.themeColor = themeColor;
     }
 }

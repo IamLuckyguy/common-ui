@@ -5,9 +5,9 @@
             <button class="service-menu-btn">서비스 선택</button>
             <div class="service-menu">
                 <a th:each="service : ${services}"
-                   th:href="${service.serviceUrl}"
-                   th:class="${service.serviceId == currentService ? 'active' : ''}"
-                   th:text="${service.serviceName}">서비스명</a>
+                   th:href="${service.url}"
+                   th:class="${service.id == currentService ? 'active' : ''}"
+                   th:text="${service.name}">서비스명</a>
             </div>
         </div>
         <div class="gnb-right">
