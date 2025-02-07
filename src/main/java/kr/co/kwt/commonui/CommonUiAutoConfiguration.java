@@ -4,6 +4,7 @@ import nz.net.ultraq.thymeleaf.layoutdialect.LayoutDialect;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.thymeleaf.spring6.SpringTemplateEngine;
@@ -12,6 +13,10 @@ import org.thymeleaf.templatemode.TemplateMode;
 
 @AutoConfiguration(after = {
         ThymeleafAutoConfiguration.class
+})
+@EnableConfigurationProperties({
+        ServiceProperties.class,
+        ServiceConfig.class
 })
 public class CommonUiAutoConfiguration {
 

@@ -1,39 +1,37 @@
 package kr.co.kwt.commonui;
 
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.context.annotation.Bean;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.env.Environment;
-
-import java.util.Arrays;
-import java.util.List;
 
 @Configuration
-@EnableConfigurationProperties(ServiceUrlConfig.class)
 public class ServiceConfig {
 
-    private final ServiceUrlConfig serviceUrlConfig;
-    private final Environment environment;
+    @Value("${app.service:}")
+    private final ServiceProperties serviceProperties;
+    private final String currentServiceId;
+    private ServiceInfo currentService;
 
-    public ServiceConfig(ServiceUrlConfig serviceUrlConfig, Environment environment) {
-        this.serviceUrlConfig = serviceUrlConfig;
-        this.environment = environment;
+    public ServiceConfig(
+            ServiceProperties serviceProperties,
+            @Value("${app.service}") String currentServiceId
+    ) {
+        this.serviceProperties = serviceProperties;
+        this.currentServiceId = currentServiceId;
+        initCurrentService();
     }
 
-    @Bean
-    public List<ServiceInfo> services() {
-        String activeProfile = environment.getActiveProfiles()[0];
-        return Arrays.asList(
-                new ServiceInfo("exchange", "환율계산기", getUrl(serviceUrlConfig.getExchange(), activeProfile)),
-                new ServiceInfo("salary", "연봉계산기", getUrl(serviceUrlConfig.getSalary(), activeProfile))
-        );
+    private void initCurrentService() {
+        ServiceProperties.ServiceConfig config = serviceProperties.getServices().get(currentServiceId);
+        if (config != null) {
+            this.currentService = new ServiceInfo(
+                    currentServiceId,
+                    config.getName(),
+                    config.getUrl()
+            );
+        }
     }
 
-    private String getUrl(ServiceUrlConfig.ServiceUrls urls, String profile) {
-        return switch (profile) {
-            case "dev" -> urls.getDev();
-            case "prod" -> urls.getProd();
-            default -> urls.getLocal();
-        };
+    public ServiceInfo getCurrentService() {
+        return currentService;
     }
 }
