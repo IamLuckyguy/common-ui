@@ -3,8 +3,12 @@ package kr.co.kwt.commonui;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
+
+import java.util.Map;
 
 @Configuration
+@Component("serviceConfig")
 @EnableConfigurationProperties(ServiceProperties.class)
 public class ServiceConfig {
 
@@ -34,5 +38,9 @@ public class ServiceConfig {
 
     public ServiceInfo getCurrentService() {
         return currentService;
+    }
+
+    public Map<String, ServiceProperties.ServiceConfig> getServices() {
+        return serviceProperties.getServices();
     }
 }
