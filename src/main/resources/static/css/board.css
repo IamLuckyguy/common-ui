@@ -1,0 +1,334 @@
+/* 게시판 섹션 스타일 */
+.board-section {
+    padding: 2rem 0;
+    background-color: #1a1a1a;
+}
+
+.board-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* 탭 네비게이션 */
+.board-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 8px;
+}
+
+.tab-item {
+    padding: 8px 16px;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    border-radius: 6px;
+}
+
+.tab-item:hover {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.tab-item.active {
+    color: var(--theme-color);
+    background-color: rgba(var(--theme-color-rgb), 0.1);
+}
+
+/* 게시글 아이템 */
+.post-item {
+    background-color: #2a2a2a;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 16px;
+}
+
+.post-header {
+    margin-bottom: 16px;
+}
+
+.post-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.author-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.author-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.author-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.author-name {
+    font-weight: 600;
+    color: #fff;
+}
+
+.post-date {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* 게시글 내용 */
+.post-content {
+    margin-bottom: 16px;
+}
+
+.post-text {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+.post-text.clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.btn-more {
+    background: none;
+    border: none;
+    color: var(--theme-color);
+    padding: 0;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* 게시글 하단 */
+.post-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 16px;
+}
+
+.post-actions {
+    display: flex;
+    gap: 16px;
+}
+
+.btn-like,
+.btn-comment {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.btn-like:hover,
+.btn-comment:hover {
+    color: var(--theme-color);
+}
+
+/* 댓글 영역 */
+.comments-section {
+    margin-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 16px;
+}
+
+.comment-write {
+    display: flex;
+    gap: 12px;
+}
+
+.comment-avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.comment-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.comment-form {
+    flex: 1;
+    display: flex;
+    gap: 8px;
+}
+
+.comment-input {
+    flex: 1;
+    padding: 8px 12px;
+    background-color: #1a1a1a;
+    border: 1px solid #4a4a4a;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 14px;
+}
+
+.comment-input:focus {
+    outline: none;
+    border-color: var(--theme-color);
+}
+
+.btn-submit {
+    padding: 8px 16px;
+    background-color: var(--theme-color);
+    color: #1a1a1a;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.btn-submit:hover {
+    opacity: 0.9;
+}
+
+/* 반응형 스타일 */
+@media (max-width: 768px) {
+    .board-container {
+        padding: 0 16px;
+    }
+
+    .board-tabs {
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 12px;
+    }
+
+    .post-item {
+        padding: 16px;
+    }
+}
+
+/* 하단 고정 게시글 작성 바 */
+.bottom-write-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(26, 26, 26, 0.8);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 12px 0;
+    z-index: 1000;
+}
+
+.bottom-write-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.writer-profile {
+    flex-shrink: 0;
+}
+
+.writer-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.writer-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.write-input-wrapper {
+    flex-grow: 1;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.write-input {
+    flex-grow: 1;
+    padding: 8px 16px;
+    background-color: #2a2a2a;
+    border: 1px solid #4a4a4a;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 14px;
+    resize: none;
+    min-height: 36px;
+    max-height: 120px;
+    transition: all 0.2s ease;
+}
+
+.write-input:focus {
+    outline: none;
+    border-color: var(--theme-color);
+    background-color: #333;
+}
+
+.write-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.btn-submit-post {
+    padding: 8px 16px;
+    height: 36px;
+    background-color: var(--theme-color);
+    color: #1a1a1a;
+    border: none;
+    border-radius: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    opacity: 0.5;
+    white-space: nowrap;
+}
+
+.btn-submit-post:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.btn-submit-post:not(:disabled) {
+    opacity: 1;
+}
+
+.btn-submit-post:not(:disabled):hover {
+    opacity: 0.9;
+}
+
+/* 컨텐츠 영역 하단 여백 */
+.post-list {
+    margin-bottom: 80px; /* 하단 작성 바 높이만큼 여백 추가 */
+}
+
+/* 반응형 스타일 */
+@media (max-width: 768px) {
+    .bottom-write-container {
+        padding: 0 16px;
+    }
+
+    .write-input {
+        font-size: 14px;
+    }
+}
