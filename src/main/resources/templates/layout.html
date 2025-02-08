@@ -16,6 +16,9 @@
     <!-- Common CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/modal.css}">
+    <link rel="stylesheet" th:href="@{/css/board.css}">
 
     <!-- 서비스별 테마 설정 -->
     <style th:inline="css">
@@ -37,6 +40,9 @@
     <!-- Common Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script th:src="@{/js/common.js}"></script>
+    <script th:src="@{/js/board.js}"></script>
 
     <!-- Google AdSense -->
     <script th:if="${activeProfile == 'prod'}"
@@ -62,6 +68,9 @@
 
 <!-- Footer -->
 <th:block th:replace="~{fragments/footer :: footer}" />
+
+<!-- 로그인 모달 -->
+<th:block th:replace="~{fragments/login-modal :: loginModal}"></th:block>
 
 <!-- Page Scripts -->
 <th:block th:replace="${scripts}" />

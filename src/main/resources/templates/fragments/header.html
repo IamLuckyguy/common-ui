@@ -1,26 +1,37 @@
 <!-- fragments/header.html -->
 <header th:fragment="header(services, currentService)" class="main-header">
-    <nav class="gnb-container">
-        <div class="gnb-left">
-            <button class="service-menu-btn">서비스 선택</button>
-            <div class="service-menu">
-                <a th:each="service : ${services}"
-                   th:href="${service.url}"
-                   th:class="${service.id == currentService ? 'active' : ''}"
-                   th:text="${service.name}">서비스명</a>
-            </div>
-        </div>
-        <div class="gnb-right">
-            <th:block th:if="${#authentication != null and #authentication.principal != null}">
-                <div class="user-info">
-                    <span th:text="${#authentication.principal.name}">사용자명</span>
-                    <a href="/logout">로그아웃</a>
+    <nav class="gnb">
+        <div class="gnb-container">
+            <!-- 좌측: 로고 및 메인 네비게이션 -->
+            <div class="gnb-left">
+                <a href="/" class="logo">
+                    <div class="logo-icon">K</div>
+                    <span class="logo-text">KWTeam</span>
+                </a>
+                <div class="main-nav">
+                    <a href="/community" class="nav-item">소통하기</a>
+                    <a href="/feedback" class="nav-item">참견하기</a>
+                    <a href="/about" class="nav-item">알아보기</a>
                 </div>
-            </th:block>
-            <th:block th:unless="${#authentication != null and #authentication.principal != null}">
-                <a href="/login">로그인</a>
-                <a href="/signup">회원가입</a>
-            </th:block>
+            </div>
+
+            <!-- 우측: 인증 관련 버튼 -->
+            <div class="gnb-right">
+                <button class="btn-login">로그인</button>
+                <button class="btn-signup">가입하기</button>
+                <button class="btn-mobile-menu" aria-label="메뉴 열기">
+                    <span class="hamburger-icon"></span>
+                </button>
+            </div>
+
+            <!-- 모바일 메뉴 -->
+            <div class="mobile-menu">
+                <nav class="mobile-nav">
+                    <a href="/community" class="mobile-nav-item">소통하기</a>
+                    <a href="/feedback" class="mobile-nav-item">참견하기</a>
+                    <a href="/about" class="mobile-nav-item">알아보기</a>
+                </nav>
+            </div>
         </div>
     </nav>
 </header>
