@@ -1,0 +1,26 @@
+/* common-ui/resources/static/css/components/_layouts.css */
+.app-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content-wrapper {
+    flex: 1;
+    margin-top: var(--header-height);
+    padding-bottom: var(--footer-height);
+}
+
+.main-content,
+.board-content {
+    opacity: 1;
+    transition: opacity var(--transition-normal);
+}
+
+body.loading {
+    overflow: hidden;
+}
+
+body.loading .main-content,
+body.loading .board-content {
+    opacity: 0;
+}

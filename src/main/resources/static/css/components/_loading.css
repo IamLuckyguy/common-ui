@@ -1,0 +1,28 @@
+/* common-ui/resources/static/css/components/_loading.css */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-primary);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: var(--z-modal);
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+}
+
+.loading-overlay.visible {
+    opacity: 1;
+}
+
+.spinner {
+    width: 48px;
+    height: 48px;
+    border: 4px solid var(--border-secondary);
+    border-left-color: var(--theme-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}

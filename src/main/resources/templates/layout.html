@@ -1,4 +1,4 @@
-<!-- templates/layout.html -->
+<!-- common-ui/resources/templates/layout.html -->
 <!DOCTYPE html>
 <html th:fragment="layout(title, content, meta, css, scripts)" lang="ko">
 <head>
@@ -8,41 +8,45 @@
     <!-- GTM Head -->
     <th:block th:replace="~{fragments/gtm :: head}" />
 
-    <!-- Meta Tags -->
+    <!-- 메타 태그(서비스별 생성 필요) -->
     <th:block th:if="${meta}" th:replace="${meta}" />
 
     <title th:replace="${title}">Default Title</title>
 
-    <!-- Common CSS -->
+    <!-- 공통 CSS -->
+    <!-- base -->
+    <link rel="stylesheet" th:href="@{/css/base/_variables.css}">
+    <link rel="stylesheet" th:href="@{/css/base/_reset.css}">
+    <link rel="stylesheet" th:href="@{/css/base/_animations.css}">
+
+    <!-- components 추가할 경우 순서에 따라 동작이 달라질 수 있음을 유의 -->
+    <link rel="stylesheet" th:href="@{/css/components/_layouts.css}">
+    <link rel="stylesheet" th:href="@{/css/components/_forms.css}">
+    <link rel="stylesheet" th:href="@{/css/components/_buttons.css}">
+    <link rel="stylesheet" th:href="@{/css/components/_modal.css}">
+    <link rel="stylesheet" th:href="@{/css/components/_header.css}">
+    <link rel="stylesheet" th:href="@{/css/components/_board.css}">
+    <link rel="stylesheet" th:href="@{/css/components/_loading.css}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" th:href="@{/css/common.css}">
-    <link rel="stylesheet" th:href="@{/css/header.css}">
-    <link rel="stylesheet" th:href="@{/css/modal.css}">
-    <link rel="stylesheet" th:href="@{/css/board.css}">
 
     <!-- 서비스별 테마 설정 -->
     <style th:inline="css">
         :root {
             --theme-color: [(${@serviceProperties.themeColor})];
             --theme-color-rgb: [(${@serviceProperties.themeColorRgb})];
-            --bg-color: #1a1a1a;
-            --text-color: #ffffff;
-            --border-color: #4a4a4a;
         }
     </style>
 
-    <!-- Favicons -->
+    <!-- Favicons (서비스별 생성 필요) -->
     <th:block th:replace="~{fragments/favicon :: favicons}" />
 
-    <!-- Page specific CSS -->
+    <!-- 각 서비스 페이지에서 추가하는 CSS -->
     <th:block th:insert="${css}" />
 
-    <!-- Common Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+    <!-- 공통 스크립트 -->
     <script th:src="@{/js/common.js}"></script>
     <script th:src="@{/js/board.js}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- Google AdSense -->
     <script th:if="${activeProfile == 'prod'}"
@@ -50,29 +54,38 @@
             crossorigin="anonymous">
     </script>
 </head>
-<body th:class="'dark ' + ${@serviceProperties.themeClass}"> <!-- 서비스별 테마 적용 -->
-<!-- GTM Body -->
-<th:block th:replace="~{fragments/gtm :: body}" />
+<body th:class="dark">
+    <!-- GTM Body -->
+    <th:block th:replace="~{fragments/gtm :: body}" />
 
-<!-- Header -->
-<th:block th:replace="~{fragments/header :: header(services=${services}, currentService=${@serviceProperties})}" />
+    <!-- Loading Overlay -->
+    <th:block th:replace="~{fragments/loading :: loading-overlay}" />
 
-<!-- Loading Overlay -->
-<th:block th:replace="~{fragments/loading :: loading-overlay}" />
+    <div class="app-wrapper">
+        <!-- Header -->
+        <th:block th:replace="~{fragments/header :: header(services=${services}, currentService=${@serviceProperties})}" />
 
-<!-- Main Content -->
-<th:block th:replace="${content}" />
+        <!-- Main Content Area -->
+        <div class="main-content-wrapper">
+            <!-- 환율계산기, 연봉실수령좀 등의 서비스 내용 -->
+            <div class="main-content">
+                <th:block th:replace="${content}" />
+            </div>
 
-<!-- Board -->
-<th:block th:replace="~{fragments/board :: board}" />
+            <!-- Board -->
+            <div class="board-content">
+                <th:block th:replace="~{fragments/board :: board}" />
+            </div>
+        </div>
 
-<!-- Footer -->
-<th:block th:replace="~{fragments/footer :: footer}" />
+        <!-- Footer -->
+        <th:block th:replace="~{fragments/footer :: footer}" />
+    </div>
 
-<!-- 로그인 모달 -->
-<th:block th:replace="~{fragments/login-modal :: loginModal}"></th:block>
+    <!-- 로그인 모달 -->
+    <th:block th:replace="~{fragments/login-modal :: loginModal}"></th:block>
 
-<!-- Page Scripts -->
-<th:block th:replace="${scripts}" />
+    <!-- 각 서비스 페이지에서 추가하는 스크립트 -->
+    <th:block th:replace="${scripts}" />
 </body>
 </html>

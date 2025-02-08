@@ -57,10 +57,21 @@ public class ServiceProperties {
         return id + "-service";
     }
 
+    // themeColor를 RGB 형식으로 변환하여 반환
     public String getThemeColorRgb() {
-        return themeColor != null && themeColor.startsWith("#")
-                ? themeColor.substring(1)
-                : themeColor;
+        if (themeColor == null || !themeColor.startsWith("#") || themeColor.length() != 7) {
+            return "0, 0, 0"; // 기본값
+        }
+
+        try {
+            // #00ff88 형식의 hex 값을 RGB로 변환
+            int r = Integer.parseInt(themeColor.substring(1, 3), 16);
+            int g = Integer.parseInt(themeColor.substring(3, 5), 16);
+            int b = Integer.parseInt(themeColor.substring(5, 7), 16);
+            return String.format("%d, %d, %d", r, g, b);
+        } catch (Exception e) {
+            return "0, 0, 0"; // 파싱 실패시 기본값
+        }
     }
 
     @Override

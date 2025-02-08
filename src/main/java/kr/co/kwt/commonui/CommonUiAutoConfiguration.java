@@ -1,8 +1,6 @@
 package kr.co.kwt.commonui;
 
 import nz.net.ultraq.thymeleaf.layoutdialect.LayoutDialect;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration;
@@ -20,8 +18,6 @@ import org.thymeleaf.templatemode.TemplateMode;
 })
 @EnableConfigurationProperties(ServiceProperties.class)
 public class CommonUiAutoConfiguration {
-
-    private static final Logger log = LoggerFactory.getLogger(CommonUiAutoConfiguration.class);
 
     @Bean
     public WebMvcConfigurer webMvcConfigurer() {

@@ -1,0 +1,79 @@
+/* common-ui/resources/static/css/base/_variables.css */
+:root {
+    /* Theme Colors - 서비스별 설정값으로 override */
+    --theme-color: #00ff88;  /* 기본값 */
+    --theme-color-rgb: 0, 255, 136;  /* 기본값 */
+
+    /* 기존 다크 테마 색상을 기본값으로 설정 */
+    color-scheme: dark;
+
+    /* Background Colors */
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2a2a2a;
+    --bg-tertiary: #3a3a3a;
+    --bg-overlay: rgba(0, 0, 0, 0.7);
+    --bg-overlay-blur: rgba(26, 26, 26, 0.8);
+    --bg-hover: #4a4a4a;
+
+    /* Text Colors */
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.7);
+    --text-tertiary: rgba(255, 255, 255, 0.5);
+    --text-selected: #1a1a1a;
+
+    /* Border Colors */
+    --border-primary: #4a4a4a;
+    --border-secondary: rgba(255, 255, 255, 0.1);
+    --border-primary-hover: #6a6a6a;
+
+    /* Layout */
+    --header-height: 64px;
+    --footer-height: 60px;
+    --container-max-width: 1200px;
+    --container-padding: 24px;
+    --container-padding-mobile: 16px;
+
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 6px;
+    --radius-lg: 8px;
+
+    /* Spacing */
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+
+    /* Z-Index Layers */
+    --z-header: 1000;
+    --z-modal: 1100;
+    --z-tooltip: 1200;
+
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+
+    --color-success: #22c55e;
+    --color-error: #ef4444;
+    --radius-full: 9999px;
+
+    /* Shadow 변수들 */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+:root[data-theme="light"] {
+    color-scheme: light;
+
+    /* Light theme colors */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f5f5;
+    --bg-tertiary: #e5e5e5;
+    --text-primary: #000000;
+    --text-secondary: rgba(0, 0, 0, 0.7);
+    --text-tertiary: rgba(0, 0, 0, 0.5);
+    --border-primary: #d1d1d1;
+    --border-secondary: rgba(0, 0, 0, 0.1);
+}

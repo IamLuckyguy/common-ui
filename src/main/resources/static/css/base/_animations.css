@@ -1,0 +1,6 @@
+/* common-ui/resources/static/css/base/_animations.css */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
