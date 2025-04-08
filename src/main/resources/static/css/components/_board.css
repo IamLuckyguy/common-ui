@@ -188,7 +188,8 @@
     border-color: var(--theme-color);
 }
 
-.btn-submit {
+/* 댓글 작성 버튼 */
+.comment-form .btn-submit {
     padding: var(--space-sm) var(--space-md);
     background-color: var(--theme-color);
     color: var(--text-selected);
@@ -197,9 +198,11 @@
     font-weight: 600;
     cursor: pointer;
     transition: opacity 0.2s ease;
+    min-width: 50px;
+    height: 36px;
 }
 
-.btn-submit:hover {
+.comment-form .btn-submit:hover {
     opacity: 0.9;
 }
 

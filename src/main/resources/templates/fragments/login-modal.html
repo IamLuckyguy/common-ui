@@ -2,20 +2,85 @@
 <div th:fragment="loginModal" class="modal-overlay" id="loginModal">
     <div class="modal-container">
         <div class="modal-content">
+            <div id="registerModalLoading" class="modal-loading" style="display: none;"></div>
+            <div id="modalLoading" class="modal-loading" style="display: none;"></div>
             <div class="modal-header">
                 <h2>로그인</h2>
                 <button class="modal-close" aria-label="닫기">&times;</button>
             </div>
             <form id="loginForm" class="modal-form">
-                <div class="form-group">
+                <div class="form-group has-validation">
                     <label for="loginId">아이디</label>
                     <input type="text" id="loginId" name="loginId" required>
                 </div>
-                <div class="form-group">
+                <div class="form-group has-validation">
                     <label for="loginPassword">비밀번호</label>
                     <input type="password" id="loginPassword" name="loginPassword" required>
                 </div>
                 <button type="submit" class="btn-submit">로그인</button>
+                <div class="form-footer">
+                    <p>계정이 없으신가요? <a href="#" id="showRegisterBtn">회원가입</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- 회원가입 모달 -->
+<div th:fragment="registerModal" class="modal-overlay" id="registerModal">
+    <div class="modal-container">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>회원가입</h2>
+                <button class="modal-close" aria-label="닫기">&times;</button>
+            </div>
+            <!-- 회원가입 단계 1: 기본 정보 입력 -->
+            <form id="registerForm" class="modal-form">
+                <div class="step-container" id="registerStep1">
+                    <div class="form-group">
+                        <label for="regUsername">아이디</label>
+                        <input type="text" id="regUsername" name="username" required 
+                               placeholder="영문자, 숫자 조합 (4~50자)" pattern="^[a-zA-Z0-9_]{4,50}$">
+                        <div id="usernameLoading" class="input-loading" style="display: none;"></div>
+                        <div id="usernameHint" class="input-hint"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="regNickname">닉네임</label>
+                        <div class="input-group">
+                            <input type="text" id="regNickname" name="nickname" required 
+                                 placeholder="2~50자 이내로 입력해주세요">
+                            <button type="button" id="generateNicknameBtn" class="btn-secondary">자동생성</button>
+                        </div>
+                        <div id="nicknameLoading" class="input-loading" style="display: none;"></div>
+                        <div id="nicknameHint" class="input-hint"></div>
+                    </div>
+                    <div class="form-group has-validation">
+                        <label for="regPassword">비밀번호</label>
+                        <input type="password" id="regPassword" name="password" required
+                               placeholder="영문, 특수문자, 숫자 포함 8자 이상">
+                        <div id="passwordStrength" class="input-hint"></div>
+                    </div>
+                    <div class="form-group" id="passwordConfirmGroup" style="display: none;">
+                        <label for="regPasswordConfirm">비밀번호 확인</label>
+                        <input type="password" id="regPasswordConfirm" name="passwordConfirm" required>
+                        <div id="passwordConfirmHint" class="input-hint"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="regEmail">이메일</label>
+                        <div class="input-group">
+                            <input type="email" id="regEmail" name="email" required>
+                            <button type="button" id="sendVerificationBtn" class="btn-secondary" disabled>코드전송</button>
+                        </div>
+                    </div>
+                    <div class="form-group verification-code-container" id="verificationCodeContainer" style="display: none;">
+                        <div class="input-group">
+                            <input type="text" id="verificationCode" name="verificationCode" maxlength="6" placeholder="인증코드 6자리" pattern="[0-9]{6}">
+                            <button type="button" id="verifyCodeBtn" class="btn-secondary verification-btn" disabled>인증</button>
+                        </div>
+                        <div class="verification-timer" id="verificationTimer">10:00</div>
+                    </div>
+                    <button type="button" id="registerBtn" class="btn-submit" disabled>회원가입</button>
+                </div>
             </form>
         </div>
     </div>

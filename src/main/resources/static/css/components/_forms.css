@@ -1,4 +1,33 @@
-/* common-ui/resources/static/css/components/_forms.css */
+.form-group.has-button .input-loading {
+    right: 90px; /* 버튼 너비를 고려해 인디케이터 위치 조정 */
+}/* 버튼 색상 사용자정의 */
+.verification-btn {
+    opacity: 0.6;
+}
+
+.verification-btn:not([disabled]) {
+    background-color: var(--theme-color);
+    color: var(--bg-primary);
+    opacity: 1;
+}/* Form Group with Button - 버튼이 있는 입력란 스타일 */
+.form-group.has-button {
+    position: relative;
+}
+
+.form-group.has-button input {
+    width: 100%;
+    padding-right: 90px; /* 버튼 너비를 고려한 여백 */
+}
+
+.form-group.has-button button {
+    position: absolute;
+    right: 0;
+    top: 32px; /* 라벨 아래에 정확히 위치하도록 조정 */
+    height: 44px; /* 입력란과 동일한 높이로 설정 */
+    width: 80px; /* 버튼 너비 고정 */
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}/* common-ui/resources/static/css/components/_forms.css */
 /* Form Group */
 .form-group {
     display: flex;
@@ -205,4 +234,51 @@
 select.form-control {
     color: var(--text-primary) !important;
     background-color: var(--bg-secondary) !important;
+}
+
+/* 이메일 인증 관련 스타일 */
+/* 이메일 입력란과 인증코드 입력란 사이 여백 */
+.verification-code-container {
+    margin-top: 8px;
+    margin-bottom: 16px;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+}
+
+/* 인증란 입력과 버튼 관련 스타일 */
+.verification-input-container {
+    position: relative;
+    display: flex;
+    margin-bottom: 8px;
+}
+
+.verification-input-container input {
+    width: 100%;
+    padding-right: 70px; /* 버튼 너비를 고려한 여백 */
+    text-align: left;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+    margin-right: 0;
+}
+
+.verification-input-container button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 70px;
+    margin: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    transition: all var(--transition-fast);
+}
+
+.verification-timer {
+    text-align: right;
+    font-size: 0.8em;
+    color: var(--color-warning);
+    margin-top: 0;
+    margin-bottom: var(--space-sm);
+    padding-right: var(--space-xs);
 }

@@ -53,10 +53,6 @@ public class ServiceProperties {
         this.themeColor = themeColor;
     }
 
-    public String getThemeClass() {
-        return id + "-service";
-    }
-
     // themeColor를 RGB 형식으로 변환하여 반환
     public String getThemeColorRgb() {
         if (themeColor == null || !themeColor.startsWith("#") || themeColor.length() != 7) {

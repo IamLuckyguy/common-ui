@@ -1,3 +1,4 @@
+// common-ui/resources/static/js/board.js
 // 게시판 관련 스크립트
 document.addEventListener('DOMContentLoaded', function() {
     // 게시글 작성 영역 자동 높이 조절

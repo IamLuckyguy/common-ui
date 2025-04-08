@@ -44,8 +44,11 @@
     <th:block th:insert="${css}" />
 
     <!-- 공통 스크립트 -->
+    <script th:src="@{/js/config.js}"></script>
     <script th:src="@{/js/common.js}"></script>
     <script th:src="@{/js/board.js}"></script>
+    <script th:src="@{/js/validators.js}"></script>
+    <script th:src="@{/js/member.js}"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- Google AdSense -->
@@ -84,6 +87,9 @@
 
     <!-- 로그인 모달 -->
     <th:block th:replace="~{fragments/login-modal :: loginModal}"></th:block>
+    
+    <!-- 회원가입 모달 -->
+    <th:block th:replace="~{fragments/login-modal :: registerModal}"></th:block>
 
     <!-- 각 서비스 페이지에서 추가하는 스크립트 -->
     <th:block th:replace="${scripts}" />
