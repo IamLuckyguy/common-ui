@@ -190,17 +190,17 @@
 }
 
 /* Input Groups */
-.input-group {
+.modal-input-group {
     display: flex;
-    align-items: center;
+    align-items: stretch;
 }
 
-.input-group .form-input:not(:last-child) {
+.modal-input-group .form-input:not(:last-child) {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 }
 
-.input-group .btn:not(:first-child) {
+.modal-input-group .btn:not(:first-child) {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 }
@@ -281,4 +281,33 @@ select.form-control {
     margin-top: 0;
     margin-bottom: var(--space-sm);
     padding-right: var(--space-xs);
+}
+
+/* 입력 그룹 스타일 수정 */
+.modal-input-group {
+    display: flex;
+    width: 100%;
+    border: none;
+}
+
+.modal-input-group input {
+    flex: 1;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.modal-input-group button {
+    height: 42px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    flex-shrink: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/* 힌트 텍스트 간격 통일 */
+.input-hint {
+    font-size: 12px;
+    line-height: 1.3;
 }

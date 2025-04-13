@@ -5,7 +5,7 @@
 }
 
 /* 입력란과 버튼 배치 수정 - 가로로 배치되도록 변경 */
-.form-group.has-button .input-group {
+.form-group.has-button .modal-input-group {
     display: flex;
     width: 100%;
 }
@@ -45,8 +45,7 @@
 }
 
 .input-hint {
-    font-size: 13px;
-    margin-top: 4px;
+    font-size: 12px;
     line-height: 1.3;
 }
 
@@ -54,7 +53,7 @@
     position: absolute;
     top: 42%;
     transform: translateY(-50%);
-    right: 50%;
+    right: 12px;
     width: 20px;
     height: 20px;
     border: 2px solid var(--theme-color);
@@ -62,6 +61,11 @@
     border-top-color: transparent;
     animation: spin 1s linear infinite;
     z-index: 10;
+}
+
+/* 인풋 그룹이 있는 경우 인디케이터 위치 조정 */
+.modal-input-group ~ .input-loading {
+    right: 31%;
 }
 
 @keyframes spin {
@@ -129,6 +133,11 @@
     margin: 0;
     font-weight: 700;
     text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+    line-height: 1;
+    /* 수직 정렬을 위해 추가 */
+    display: flex;
+    align-items: center;
+    height: 24px; /* X 버튼 높이와 맞춤 */
 }
 
 .modal-close {
@@ -218,7 +227,7 @@
     cursor: pointer;
     transition: all 0.2s ease;
     width: 100%;
-    margin-top: var(--space-lg);
+    /*margin-top: var(--space-lg);*/
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -288,6 +297,7 @@
     color: var(--theme-color);
     font-size: 16px;
     font-weight: 600;
+    margin-top: 16px;
     margin-bottom: var(--space-md);
     border: 1px solid var(--theme-color);
     border-radius: var(--radius-md);
@@ -332,23 +342,31 @@
 }
 
 /* 입력 그룹 스타일 추가 */
-.input-group {
+.modal-input-group {
     display: flex;
     align-items: stretch;
     width: 100%;
+    border: none;
 }
 
-.input-group input {
+.modal-input-group input {
     flex: 1;
     margin: 0;
-    border-right: none;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 }
 
-.input-group button {
-    height: 100%;
+.modal-input-group button {
+    height: 46px;
     margin: 0;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+    min-width: 90px;
+    white-space: nowrap;
+    border-left: none;
+}
+
+/* 버튼과 입력란 사이 경계선 중복 방지 */
+.modal-input-group input:focus + button {
+    border-left: 1px solid var(--theme-color);
 }

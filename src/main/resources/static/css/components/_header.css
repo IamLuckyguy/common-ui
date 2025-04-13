@@ -175,11 +175,12 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: var(--bg-primary);
+    background-color: var(--bg-secondary); /* 배경색 완전 불투명하게 변경 */
     z-index: var(--z-modal);
     padding: var(--space-lg);
     transform: translateX(100%);
     transition: transform var(--transition-normal);
+    border-top: 1px solid var(--border-secondary);
 }
 
 .mobile-menu::before {
@@ -219,10 +220,9 @@
     padding: var(--space-md);
     border-radius: var(--radius-lg);
     transition: all var(--transition-fast);
-    background-color: var(--border-secondary);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background-color: var(--bg-secondary);
     margin-bottom: var(--space-sm);
+    border: 1px solid var(--border-secondary);
 }
 
 .mobile-nav-item:hover {

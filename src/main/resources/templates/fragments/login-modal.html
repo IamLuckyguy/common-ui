@@ -13,11 +13,11 @@
                     <label for="loginId">아이디</label>
                     <input type="text" id="loginId" name="loginId" required>
                 </div>
-                <div class="form-group has-validation">
+                <div class="form-group has-validation" style="margin-bottom: 8px;">
                     <label for="loginPassword">비밀번호</label>
                     <input type="password" id="loginPassword" name="loginPassword" required>
                 </div>
-                <button type="submit" class="btn-submit">로그인</button>
+                <button type="submit" class="btn-submit" id="loginSubmitBtn" disabled>로그인</button>
                 <div class="form-footer">
                     <p>계정이 없으신가요? <a href="#" id="showRegisterBtn">회원가입</a></p>
                 </div>
@@ -46,7 +46,7 @@
                     </div>
                     <div class="form-group">
                         <label for="regNickname">닉네임</label>
-                        <div class="input-group">
+                        <div class="modal-input-group">
                             <input type="text" id="regNickname" name="nickname" required 
                                  placeholder="2~50자 이내로 입력해주세요">
                             <button type="button" id="generateNicknameBtn" class="btn-secondary">자동생성</button>
@@ -65,15 +65,15 @@
                         <input type="password" id="regPasswordConfirm" name="passwordConfirm" required>
                         <div id="passwordConfirmHint" class="input-hint"></div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" style="margin-bottom: 24px">
                         <label for="regEmail">이메일</label>
-                        <div class="input-group">
-                            <input type="email" id="regEmail" name="email" required>
+                        <div class="modal-input-group">
+                            <input type="email" id="regEmail" name="email" required inputmode="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
                             <button type="button" id="sendVerificationBtn" class="btn-secondary" disabled>코드전송</button>
                         </div>
                     </div>
                     <div class="form-group verification-code-container" id="verificationCodeContainer" style="display: none;">
-                        <div class="input-group">
+                        <div class="modal-input-group">
                             <input type="text" id="verificationCode" name="verificationCode" maxlength="6" placeholder="인증코드 6자리" pattern="[0-9]{6}">
                             <button type="button" id="verifyCodeBtn" class="btn-secondary verification-btn" disabled>인증</button>
                         </div>
