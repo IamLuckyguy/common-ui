@@ -188,14 +188,14 @@ const Validators = (function() {
     }
     
     // 이메일 인증 확인 API 호출
-    async function verifyEmail(email, code) {
+    async function verifyEmail(email, verificationCode) {
         try {
             const response = await fetch(AppConfig.getApiUrl('members/verify-email'), {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ email, code })
+                body: JSON.stringify({ email, verificationCode })
             });
             
             const data = await response.json();
